@@ -1,0 +1,46 @@
+Problem Code: RESTORE
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+   int primeno[4000000] ;
+   int i,p;
+   //using sieve
+   bool prime[4000001]; 
+    memset(prime, true, sizeof(prime)); 
+  
+    for ( p=2; p*p<=4000000; p++) 
+    { if (prime[p] == true) 
+        { 
+       for (i=p*p; i<=4000000; i += p) 
+                prime[i] = false; 
+        } 
+    } 
+  
+    // Print all prime numbers 
+    for (int p=2,i=1; p<=4000000; p++) 
+       {if (prime[p]) 
+         {primeno[i]=p;
+             i++;
+         } }
+   
+ int t;
+	int n;
+cin>>t;	
+while(t--)
+{//input prime 
+cin>>n;
+int  k[n],b[n],a[n];
+    for(int i=1;i<=n;i++)
+cin>>b[i];
+  for(int i=1;i<=n;i++){
+      k[i]=primeno[i];
+  } 
+ for(int i=1;i<=n;i++){
+   //cout<<k[i]<<" ";
+    int j=b[i];
+    a[i]=k[j];
+         cout<<a[i]<<" ";
+    }
+    cout<<endl;}
+	return 0;
+}
